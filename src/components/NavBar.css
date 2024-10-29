@@ -1,0 +1,44 @@
+/* Estilos para el nav bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+  /* Estilos para el carrito a la derecha */
+.cartWidget {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+

@@ -1,0 +1,40 @@
+#root {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Ubicación del body */
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.body h1 {
+  margin-bottom: 50px;
+}
+
+/* Botón de vaciar carrito */
+.boton2 {
+  background-color: black;
+  border-color: white;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: fixed;
+}
+
+.boton2:hover {
+  background-color: white;
+  color: black;
+}
+
+.header-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  padding: 10px 20px;        /* Agrega espacio alrededor */
+}

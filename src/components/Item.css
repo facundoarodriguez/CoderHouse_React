@@ -1,0 +1,22 @@
+.TarjetaProductos {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(62, 62, 62);
+    padding: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.TarjetaProductos p {
+    font-weight: bolder;
+}
+
+.TarjetaProductos img {
+    border-radius: 5px;
+}
+
+.boton1 {
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
