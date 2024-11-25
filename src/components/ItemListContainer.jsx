@@ -16,7 +16,7 @@ const ItemListContainer = ({ mensaje, fn, TotalCarrito }) => {
     return (
     <>
         <div className='body'>
-            <div>{mensaje}</div>
+            <div><h1>Nuestros productos</h1></div>
             {<ItemList products={products} fn={fn} TotalCarrito={TotalCarrito}/>}
         </div>
         

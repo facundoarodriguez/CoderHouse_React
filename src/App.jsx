@@ -6,6 +6,7 @@ import ButtonVaciar from './components/ButtonVaciar';
 import DolarApi from './components/DolarApi';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+import Banner from './components/Banner';
 
 function App() {
   const [TotalCarrito, setTotalCarrito] = useState(0);
@@ -22,12 +23,13 @@ function App() {
           exact path='/' element={
             <>
               <DolarApi />
+              <Banner />
               <Home/>
             </> }
         />
         <Route 
           exact path='/market' element={
-          <ItemListContainer mensaje="Nuestros productos" fn={setTotalCarrito} TotalCarrito={TotalCarrito} />}
+          <ItemListContainer fn={setTotalCarrito} TotalCarrito={TotalCarrito} />}
         />
         <Route 
           exact path='/contact' element={

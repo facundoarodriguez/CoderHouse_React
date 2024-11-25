@@ -17,7 +17,7 @@ function NavBar({TotalCarrito}) {
                     <Link to="/market" className="nav-link">Market</Link>
                 </li>
             </ul>
-            <h2 className='title'>TIENDA STAR</h2>
+            <h2 className='title'>STAR GUITARS</h2>
             <CartWidget TotalCarrito={TotalCarrito}/>
         </nav>
     );

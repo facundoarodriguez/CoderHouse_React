@@ -45,4 +45,8 @@
   display: flex;
   justify-content: flex-end; /* Alinea el contenido a la derecha */
   padding: 10px 20px;        /* Agrega espacio alrededor */
+  position: absolute;
+  top: 1.5rem;
+  right: 6rem;
+  z-index: 1000;
 }
