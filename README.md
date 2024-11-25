@@ -1,8 +1,3 @@
-# React + Vite
+Entregable 2 listo.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La entrega tiene 3 páginas navegables con routing integrado (home page, contact, y market). Market renderiza 4 productos traidos de un falso backend hecho con javascript, despliegan detalles (con una funcion) y al agregarlos al carrito se guardan en una variable global que se muestra en cualquier artículo de la página, ademas de un botón para vaciar el carrito.
