@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../data/backend';
 import ItemList from './ItemList';
+import './ItemListContainer.css';
 
 const ItemListContainer = ({ mensaje, fn, TotalCarrito }) => {
     const [products, setProducts] = useState([])
@@ -14,8 +15,11 @@ const ItemListContainer = ({ mensaje, fn, TotalCarrito }) => {
     
     return (
     <>
-        <div>{mensaje}</div>
-        {<ItemList products={products} fn={fn} TotalCarrito={TotalCarrito}/>}
+        <div className='body'>
+            <div>{mensaje}</div>
+            {<ItemList products={products} fn={fn} TotalCarrito={TotalCarrito}/>}
+        </div>
+        
     </>
     );
 };

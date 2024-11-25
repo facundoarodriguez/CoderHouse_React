@@ -1,21 +1,23 @@
 // src/components/NavBar.jsx
 import './NavBar.css'; // Importa el archivo CSS para NavBar
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 function NavBar({TotalCarrito}) {
     return (
         <nav className="navbar">
             <ul className="nav-list">
                 <li className="nav-item">
-                    <a href="#" className="nav-link">Home</a>
+                    <Link to="/" className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link">Contact</a>
+                    <Link to="/contact" className="nav-link">Contact</Link>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link">Market</a>
+                    <Link to="/market" className="nav-link">Market</Link>
                 </li>
             </ul>
+            <h2 className='title'>TIENDA STAR</h2>
             <CartWidget TotalCarrito={TotalCarrito}/>
         </nav>
     );

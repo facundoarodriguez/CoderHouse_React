@@ -1,0 +1,30 @@
+/* Centrar el contenedor principal */
+.dolar-api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilos para el título */
+.dolar-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+/* Estilos de alineación para el valor de compra y venta */
+.producto-item {
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Estilos de mensaje de error */
+.error-message {
+    color: red;
+    font-size: 1rem;
+}
+
