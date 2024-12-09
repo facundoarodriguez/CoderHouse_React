@@ -7,6 +7,7 @@ import DolarApi from './components/DolarApi';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Banner from './components/Banner';
+import ProductDetail from './components/ProductDetail'
 
 function App() {
   const [TotalCarrito, setTotalCarrito] = useState(0);
@@ -35,8 +36,8 @@ function App() {
           exact path='/contact' element={
           <h1>Página en mantenimiento...</h1>}
         />
-        <Route 
-          path='*' element={
+        <Route exact path='/product/:id' element={<ProductDetail fn={setTotalCarrito} TotalCarrito={TotalCarrito}/>}/>
+        <Route exact path='*' element={
           <h1>404: Página no encontrada</h1>}
         />
       </Routes>
