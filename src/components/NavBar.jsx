@@ -1,9 +1,8 @@
-// src/components/NavBar.jsx
-import './NavBar.css'; // Importa el archivo CSS para NavBar
+import './NavBar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
-function NavBar({TotalCarrito}) {
+function NavBar() {
     return (
         <nav className="navbar">
             <ul className="nav-list">
@@ -11,14 +10,17 @@ function NavBar({TotalCarrito}) {
                     <Link to="/" className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/contact" className="nav-link">Contact</Link>
+                    <Link to="/telecaster" className="nav-link">Telecaster</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/market" className="nav-link">Market</Link>
+                    <Link to="/stratocaster" className="nav-link">Stratocaster</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/jazzmaster" className="nav-link">Jazzmaster</Link>
                 </li>
             </ul>
             <h2 className='title'>STAR GUITARS</h2>
-            <CartWidget TotalCarrito={TotalCarrito}/>
+            <CartWidget/>
         </nav>
     );
 }

@@ -1,18 +1,11 @@
-import './ButtonAgregar.css';
+import React from 'react';
 
-const ButtonAgregar = ({ text, fn, TotalCarrito }) => {
-    const sumar = () => {
-        const nuevoTotal = TotalCarrito + 1;
-        fn(nuevoTotal);
-    };
-
+const ButtonAgregar = ({ text, fn, item }) => {
     return (
-        <button onClick={sumar} className="boton1">
-        {text}
+        <button onClick={() => fn(item)}>
+            {text}
         </button>
     );
 };
 
 export default ButtonAgregar;
-
-

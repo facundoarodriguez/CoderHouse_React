@@ -1,45 +1,32 @@
-import { useState } from 'react';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
-import ButtonVaciar from './components/ButtonVaciar';
 import DolarApi from './components/DolarApi';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Banner from './components/Banner';
 import ProductDetail from './components/ProductDetail'
+import CartPage from './components/CartPage';
 
 function App() {
-  const [TotalCarrito, setTotalCarrito] = useState(0);
 
   return (
     <>
-      <NavBar TotalCarrito={TotalCarrito} />
-      <div className="header-container">
-        <ButtonVaciar text="Vaciar carrito" fn2={setTotalCarrito} />
-      </div>
-
+      <NavBar/>
       <Routes>
-        <Route 
-          exact path='/' element={
-            <>
-              <DolarApi />
-              <Banner />
-              <Home/>
-            </> }
+        <Route exact path="/" element={<>
+          <DolarApi/>
+          <Banner/>
+          <Home/>
+          <ItemListContainer category={null} />
+          </>}
         />
-        <Route 
-          exact path='/market' element={
-          <ItemListContainer fn={setTotalCarrito} TotalCarrito={TotalCarrito} />}
-        />
-        <Route 
-          exact path='/contact' element={
-          <h1>Página en mantenimiento...</h1>}
-        />
-        <Route exact path='/product/:id' element={<ProductDetail fn={setTotalCarrito} TotalCarrito={TotalCarrito}/>}/>
-        <Route exact path='*' element={
-          <h1>404: Página no encontrada</h1>}
-        />
+        <Route exact path="/telecaster" element={<ItemListContainer category="Telecaster" />} />
+        <Route exact path="/stratocaster" element={<ItemListContainer category="Stratocaster" />} />
+        <Route exact path="/jazzmaster" element={<ItemListContainer category="Jazzmaster" />} />
+        <Route exact path="/product/:id" element={<ProductDetail />} />
+        <Route exact path="/cart" element={<CartPage />} />
+        <Route exact path="*" element={<h1>404: Página no encontrada</h1>} />
       </Routes>
     </>
   );

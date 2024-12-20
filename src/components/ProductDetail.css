@@ -16,14 +16,30 @@
     background-color: #0e0e0e;
     border-style: none;
     color: #fff;
+    padding: 8px 32px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button-volver:hover {
+    background-color: white;
+    color: black;
+}
+
+.button-volver-tienda {
+    background-color: #0e0e0e;
+    border-style: none;
+    color: #fff;
+    margin-top: 4px;
+    margin-left: 10px;
     padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    margin-right: 10px;
 }
 
-.button-volver:hover {
+.button-volver-tienda:hover {
     background-color: white;
     color: black;
 }

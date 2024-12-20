@@ -1,44 +1,61 @@
-// ProductDetail.jsx
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useCart } from "./CartContext";
 import { getProduct } from "../data/backend";
-import ButtonAgregar from "./ButtonAgregar";
+import QuantitySelector from "./Cantidad";
 import './ProductDetail.css';
 
+const ProductDetailData = ({ item, addToCart }) => {
+    const [quantity, setQuantity] = useState(1);
 
-const ProductDetailData = ({ item, fn, TotalCarrito }) => {
+    const handleAddToCart = () => {
+        addToCart(item, quantity);
+    };
+
     return (
         <div className="main">
             <div>
                 <img src={item.img} width={"400px"} height={"400px"} alt="" />
             </div>
             <div>
-                <h1>Modelo {item.model}</h1>
-                <p>ID: {item.id}</p>
+                <h1>{item.model}</h1>
                 <p>Descripción: {item.description}</p>
-                <p>Precio: ${item.price}</p>
-                <button className="button-volver">
-                    <Link to="/market">Volver a la tienda</Link>
+                <p>Precio unitario: usd${item.price}</p>
+                <p>Subtotal: usd${item.price * quantity}</p>
+                <QuantitySelector
+                    quantity={quantity}
+                    onIncrease={() => setQuantity(quantity + 1)}
+                    onDecrease={() => setQuantity(quantity - 1)}
+                />
+                <button className="button-detalles" onClick={handleAddToCart}>
+                    Agregar al carrito
                 </button>
-                <ButtonAgregar text="Agregar al carrito" fn={fn} TotalCarrito={TotalCarrito} />
+                <button className="button-volver-tienda">
+                    <Link to="/">Volver a la tienda</Link>
+                </button>
             </div>
         </div>
     );
 };
 
-
-function ProductDetail({ fn, TotalCarrito }) {
+function ProductDetail() {
     const { id } = useParams();
+    const { addToCart } = useCart();
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        setItem(getProduct(id));
+        const fetchProduct = async () => {
+            const product = await getProduct(id);
+            setItem(product);
+        };
+
+        fetchProduct();
     }, [id]);
 
     return (
         <>
             {Object.keys(item).length > 0 ? (
-                <ProductDetailData item={item} fn={fn} TotalCarrito={TotalCarrito} />
+                <ProductDetailData item={item} addToCart={addToCart} />
             ) : (
                 <p>Cargando producto...</p>
             )}

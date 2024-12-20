@@ -1,10 +1,18 @@
-import React from 'react'
-import { MdOutlineShoppingBag } from "react-icons/md";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { MdOutlineShoppingBag } from 'react-icons/md';
+import { useCart } from './CartContext';
 
-const CartWidget = ({TotalCarrito}) => {
+const CartWidget = () => {
+    const { cart } = useCart();
+
     return (
-        <div className='cartWidget'><MdOutlineShoppingBag />Carrito:<span>{TotalCarrito}</span></div>
-    )
-}
+        <Link to="/cart">
+            <div className="cartWidget"><p>Tu carrito</p><MdOutlineShoppingBag />
+                {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+            </div>
+        </Link>
+    );
+};
 
-export default CartWidget
+export default CartWidget;
