@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "./CartContext";
-import { getSingleProduct } from '../firebase/firebase';
+import { getSingleProduct } from "../firebase/firebase";
 import QuantitySelector from "./Cantidad";
-import './ProductDetail.css';
+import "./ProductDetail.css";
 
 const ProductDetailData = ({ item, addToCart }) => {
     const [quantity, setQuantity] = useState(1);
@@ -15,7 +15,7 @@ const ProductDetailData = ({ item, addToCart }) => {
     return (
         <div className="main">
             <div>
-                <img src={item.img} width={"400px"} height={"400px"} alt="" />
+                <img src={item.img} width={"400px"} height={"400px"} alt={item.model} />
             </div>
             <div>
                 <h1>{item.model}</h1>

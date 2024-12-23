@@ -7,6 +7,7 @@ import './CartPage.css';
 
 const CartPage = () => {
     const { cart, cartTotal, updateQuantity, removeFromCart, clearCart } = useCart();
+    console.log(cart)
 
     const handleCheckout = () => {
         if (cart.length !== 0) {
