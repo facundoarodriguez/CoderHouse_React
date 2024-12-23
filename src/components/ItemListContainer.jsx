@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getProducts } from '../data/backend';
+/* import { getProducts } from '../data/backend'; */
+import { getProducts } from '../firebase/firebase';
 import ItemList from './ItemList';
 import './ItemListContainer.css';
 

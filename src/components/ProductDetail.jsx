@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "./CartContext";
-import { getProduct } from "../data/backend";
+import { getSingleProduct } from '../firebase/firebase';
 import QuantitySelector from "./Cantidad";
 import './ProductDetail.css';
 
@@ -25,7 +25,7 @@ const ProductDetailData = ({ item, addToCart }) => {
                 <QuantitySelector
                     quantity={quantity}
                     onIncrease={() => setQuantity(quantity + 1)}
-                    onDecrease={() => setQuantity(quantity - 1)}
+                    onDecrease={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
                 />
                 <button className="button-detalles" onClick={handleAddToCart}>
                     Agregar al carrito
@@ -41,23 +41,38 @@ const ProductDetailData = ({ item, addToCart }) => {
 function ProductDetail() {
     const { id } = useParams();
     const { addToCart } = useCart();
-    const [item, setItem] = useState({});
+    const [item, setItem] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const product = await getProduct(id);
-            setItem(product);
+            try {
+                const product = await getSingleProduct(id);
+                if (product) {
+                    setItem(product);
+                } else {
+                    console.error("Producto no encontrado en Firestore.");
+                }
+            } catch (error) {
+                console.error("Error al obtener el producto:", error);
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchProduct();
     }, [id]);
 
+    if (loading) {
+        return <p>Cargando producto...</p>;
+    }
+
     return (
         <>
-            {Object.keys(item).length > 0 ? (
+            {item ? (
                 <ProductDetailData item={item} addToCart={addToCart} />
             ) : (
-                <p>Cargando producto...</p>
+                <p>Producto no encontrado.</p>
             )}
         </>
     );

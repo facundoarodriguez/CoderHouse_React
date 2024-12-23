@@ -21,9 +21,9 @@ function App() {
           <ItemListContainer category={null} />
           </>}
         />
-        <Route exact path="/telecaster" element={<ItemListContainer category="Telecaster" />} />
-        <Route exact path="/stratocaster" element={<ItemListContainer category="Stratocaster" />} />
-        <Route exact path="/jazzmaster" element={<ItemListContainer category="Jazzmaster" />} />
+        <Route exact path="/telecaster" element={<ItemListContainer category="telecaster" />} />
+        <Route exact path="/stratocaster" element={<ItemListContainer category="stratocaster" />} />
+        <Route exact path="/jazzmaster" element={<ItemListContainer category="jazzmaster" />} />
         <Route exact path="/product/:id" element={<ProductDetail />} />
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="*" element={<h1>404: Página no encontrada</h1>} />
