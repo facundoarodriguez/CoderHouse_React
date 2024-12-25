@@ -1,12 +1,12 @@
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar';
-import DolarApi from './components/DolarApi';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
+import DolarApi from './components/DolarApi/DolarApi';
 import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Banner from './components/Banner';
-import ProductDetail from './components/ProductDetail'
-import CartPage from './components/CartPage';
+import Home from './screens/Home/Home';
+import Banner from './components/Banner/Banner';
+import ProductDetail from './screens/ProductDetail/ProductDetail'
+import CartPage from './screens/CartPage/CartPage';
 
 function App() {
 

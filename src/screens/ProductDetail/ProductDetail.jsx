@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useCart } from "./CartContext";
-import { getSingleProduct } from "../firebase/firebase";
-import QuantitySelector from "./Cantidad";
+import { useCart } from "../../components/CartContext/CartContext";
+import { getSingleProduct } from "../../firebase/firebase";
+import QuantitySelector from "../../components/Cantidad/Cantidad";
 import "./ProductDetail.css";
 
 const ProductDetailData = ({ item, addToCart }) => {

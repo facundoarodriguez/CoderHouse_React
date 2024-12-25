@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 /* import { getProducts } from '../data/backend'; */
-import { getProducts } from '../firebase/firebase';
-import ItemList from './ItemList';
+import { getProducts } from '../../firebase/firebase';
+import ItemList from '../../components/ItemList/ItemList';
 import './ItemListContainer.css';
 
 const ItemListContainer = ({ category }) => {

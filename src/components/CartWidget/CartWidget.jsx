@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingBag } from 'react-icons/md';
-import { useCart } from './CartContext';
+import { useCart } from '../CartContext/CartContext';
 
 const CartWidget = () => {
     const { cart } = useCart();

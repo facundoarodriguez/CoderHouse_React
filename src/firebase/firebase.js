@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore, getDoc, doc } from "firebase/firestore";
+import { collection, getDocs, getFirestore, getDoc, doc, addDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -50,5 +50,16 @@ export async function getProducts() {
         }
     } catch (error) {
         console.error('Error al obtener la colección', error);
+    }
+}
+
+//Agregar orden de compra
+export async function sendOrder(order) {
+    const ordersCollection = collection(db, 'orders');
+    try {
+        const docRef = await addDoc(ordersCollection, order);
+        return docRef.id;
+    } catch (error) {
+        console.error('Error al agregar el documento', error);
     }
 }
