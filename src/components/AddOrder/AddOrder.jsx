@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendOrder } from "../firebase"; // Asegúrate de importar la función
+import { sendOrder } from "../firebase";
 
 export default function AddOrders() {
     const [orderId, setOrderId] = useState(null);
@@ -7,17 +7,16 @@ export default function AddOrders() {
     const [items, setItems] = useState([]);
     const [total, setTotal] = useState(0);
 
-    // Esta función sería la que se activa cuando el usuario haga clic en "Enviar"
     const handleClick = () => {
         const newOrder = {
             buyer: buyerInfo,
-            items: items, // Aquí puedes agregar los productos seleccionados del carrito
-            total: total, // El total de la compra
+            items: items,
+            total: total,
         };
 
         sendOrder(newOrder)
             .then((id) => {
-                setOrderId(id); // Establece el ID de la orden cuando se haya creado correctamente
+                setOrderId(id);
                 alert("¡Orden realizada con éxito! ID de la orden: " + id);
             })
             .catch((error) => {
@@ -43,7 +42,6 @@ export default function AddOrders() {
                 />
             </div>
 
-            {/* Aquí deberías tener alguna forma de agregar los productos al carrito */}
             <div>
                 <button onClick={handleClick}>Enviar Orden</button>
             </div>
